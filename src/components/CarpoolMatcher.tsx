@@ -22,9 +22,13 @@ const CarpoolMatcher: React.FC = () => {
   };
 
   const moveToNextMatch = () => {
-    if (currentIndex < matches.length - 1) {
+    if (currentIndex < matches.length) {
       setCurrentIndex(currentIndex + 1);
     }
+  };
+
+  const handleRestart = () => {
+    setCurrentIndex(0);
   };
 
   if (matches.length === 0 || currentIndex >= matches.length) {
@@ -32,7 +36,13 @@ const CarpoolMatcher: React.FC = () => {
       <div className="flex min-h-[calc(100vh-8rem)] items-center justify-center">
         <div className="text-center p-8 bg-white rounded-3xl shadow-xl">
           <h2 className="text-2xl font-semibold text-gray-700">No more matches!</h2>
-          <p className="text-gray-500 mt-2">Check back later for new carpool opportunities.</p>
+          <p className="text-gray-500 mt-2 mb-6">Check back later for new carpool opportunities.</p>
+          <button 
+            onClick={handleRestart}
+            className="px-6 py-2 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition-colors"
+          >
+            Restart
+          </button>
         </div>
       </div>
     );
@@ -46,7 +56,7 @@ const CarpoolMatcher: React.FC = () => {
         <div className="bg-white rounded-3xl shadow-xl p-10 flex flex-col items-center w-full">
           <div className="w-full">
             <div className="mb-2">
-              <span className="block text-5xl font-black text-gray-900 leading-tight">
+              <span className="block text-4xl font-black text-gray-900 leading-tight">
                 {currentMatch.firstName} {currentMatch.lastName}
               </span>
               <span className="block text-2xl text-gray-700 mt-2 mb-6 font-normal">

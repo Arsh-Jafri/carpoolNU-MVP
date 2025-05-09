@@ -1,4 +1,4 @@
-interface Match {
+export interface Match {
     firstName: string
     lastName: string
     employer: string
@@ -8,7 +8,7 @@ interface Match {
     endDistanceDelta: number
 }
 
-const matchList: Match[] = [
+export const matchList: Match[] = [
     {
         firstName: "Sally",
         lastName: "Ride",
@@ -72,4 +72,4 @@ const matchList: Match[] = [
         startDistanceDelta: 4,
         endDistanceDelta: 5.2
     }
-];
+]; 
